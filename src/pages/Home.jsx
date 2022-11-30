@@ -1,8 +1,11 @@
 import React from 'react'
+import ShowProducts from '../services/ShowProducts'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <ShowProducts />
+    </>
   )
 }
 
