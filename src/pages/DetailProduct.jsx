@@ -26,7 +26,7 @@ const DetailProduct = () => {
   return (
     <>
       <div className='producto'>
-        <img src={product.image} alt={product.product_name} />
+        {product.image === undefined ? <img src='https://www.ideasmerchandising.com/assets/frontend/imagenes/no_img_avaliable.jpg' alt={product.product_name} /> : <img src={product.image} alt={product.product_name} />}
         <h3>{product.product_name}</h3>
         <p>{product.description}</p>
         <div className='product__price'>
