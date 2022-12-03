@@ -1,10 +1,42 @@
-import React from 'react'
-import ShowProducts from '../services/ShowProducts'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const [products, setProducts] = useState([])
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    getProduct()
+  }, [])
+
+  const getProduct = async () => {
+    try {
+      const response = await fetch('https://e-commerce-backend-production-ad56.up.railway.app/api/v1/item/')
+
+      if (!response.ok) {
+        console.log('El API no responde')
+      }
+      const data = await response.json()
+      setProducts([...data])
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
-      <ShowProducts />
+      {products.map((product, index) => {
+        return (
+          <div key={index} onClick={() => { navigate(`/product/${product._id}`) }}>
+            {product.image === undefined ? <img src='https://www.ideasmerchandising.com/assets/frontend/imagenes/no_img_avaliable.jpg' alt={product.product_name} /> : <img src={product.image} alt={product.product_name} />}
+            <h3>{product.product_name}</h3>
+            <p>{product.description}</p>
+            <div className='product__price'>
+              $ {product.price}.00
+            </div>
+          </div>
+        )
+      })}
     </>
   )
 }
