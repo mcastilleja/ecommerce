@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { detailProduct } from '../services/useServices'
 
 const DetailProduct = () => {
   const [product, setProduct] = useState([])
@@ -9,15 +10,15 @@ const DetailProduct = () => {
     getProduct(pid)
   }, [pid])
 
-  const getProduct = async (name) => {
+  const getProduct = async (productId) => {
     try {
-      const response = await fetch(`https://e-commerce-backend-production-ad56.up.railway.app/api/v1/item/${name}`)
+      const response = await detailProduct(productId)
 
-      if (!response.ok) {
+      if (response.status !== 200) {
         console.log('El API no responde')
       }
-      const data = await response.json()
-      setProduct(data)
+
+      setProduct(structuredClone(response.data))
     } catch (error) {
       console.log(error)
     }
@@ -38,6 +39,7 @@ const DetailProduct = () => {
         <div className='product__category'>
           {product.category}
         </div>
+        <button className='product__buyBotton'>Buy</button>
       </div>
     </>
   )

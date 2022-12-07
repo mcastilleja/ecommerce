@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { productList } from '../services/useServices'
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -13,15 +14,15 @@ const Home = () => {
 
   const getProduct = async () => {
     try {
-      const response = await fetch('https://e-commerce-backend-production-ad56.up.railway.app/api/v1/item/')
+      const response = await productList()
 
-      if (!response.ok) {
+      if (response.status !== 200) {
         console.log('El API no responde')
       }
-      const data = await response.json()
-      setProducts([...data])
+
+      setProducts(structuredClone(response.data))
     } catch (error) {
-      console.log(error)
+      console.log('Ocurrio un Error: ', error.message)
     }
   }
 
