@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
-import Error404 from '../pages/Error404'
-import Home from '../pages/Home'
-import Login from '../pages/Login'
-import DetailProduct from '../pages/DetailProduct'
-import Signup from '../pages/Signup'
+import Error404 from '@/pages/Error404'
+import Home from '@/pages/Home'
+import Login from '@/pages/Login'
+import DetailProduct from '@/pages/DetailProduct'
+import Signup from '@/pages/Signup'
 
 function RoutesIndex () {
   return (

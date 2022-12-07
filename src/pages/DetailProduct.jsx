@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { detailProduct } from '../services/useServices'
+import { detailProduct } from '@/services/useServices'
 
 const DetailProduct = () => {
   const [product, setProduct] = useState([])

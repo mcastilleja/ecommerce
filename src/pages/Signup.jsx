@@ -1,4 +1,4 @@
-import React from 'react'
+import { registerUserService } from '@/services/useServices'
 
 const Signup = () => {
   return (

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { productList } from '../services/useServices'
+import { productList } from '@/services/useServices'
 
 const Home = () => {
   const [products, setProducts] = useState([])
