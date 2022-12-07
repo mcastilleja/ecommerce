@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom'
 
 function Product ({ product }) {
-  console.log('Product: ' + product)
+  const navigate = useNavigate()
+
   return (
-    <div className='card mb-4 box-shadow'>
+    <div className='card mb-4 box-shadow' onClick={() => { navigate(`/product/${product._id}`) }}>
       {product.image === undefined ? <img src='https://www.ideasmerchandising.com/assets/frontend/imagenes/no_img_avaliable.jpg' alt={product.product_name} /> : <img src={product.image} alt={product.product_name} />}
       <div className='card-body'>
         <p className='card-text'>{product.product_name}</p>
