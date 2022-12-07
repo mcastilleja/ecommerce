@@ -4,6 +4,7 @@ import Home from '@/pages/Home'
 import Login from '@/pages/Login'
 import DetailProduct from '@/pages/DetailProduct'
 import Signup from '@/pages/Signup'
+import SignupWelcome from '@/pages/SignupWelcome'
 
 function RoutesIndex () {
   return (
@@ -12,6 +13,7 @@ function RoutesIndex () {
       <Route path='/product/:pid' element={<DetailProduct />} />
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
+      <Route path='/welcome' element={<SignupWelcome />} />
       <Route path='*' element={<Error404 />} />
     </Routes>
   )
