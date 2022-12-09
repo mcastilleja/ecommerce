@@ -10,12 +10,7 @@ const Signup = () => {
       const response = await registerUserService(data)
 
       if (response.status === 200) {
-        navigate('/welcome', {
-          state: {
-            firstName: data.first_name,
-            lastName: data.last_name
-          }
-        })
+        navigate('/login')
       }
     } catch (error) {
       console.log('Ocurrio un Error: ', error.message)
@@ -82,7 +77,7 @@ const Signup = () => {
               type='email'
               className='form-control'
               id='email'
-              placeholder='name@example.com'
+              placeholder='jhon@doe.com'
               name='email'
               value={input.email}
               onChange={handleInputChange}
