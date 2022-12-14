@@ -1,11 +1,13 @@
 import { createContext, useState, useEffect } from 'react'
 import jwtDecode from 'jwt-decode'
+import { getRegisterUser } from '@/services/useServices'
 
 export const AuthContext = createContext()
 
 export function AuthProvider (props) {
   const [isAuth, setIsAuth] = useState(false)
   const [user, setUser] = useState(null)
+  const [userData, setUserData] = useState({})
 
   const register = (token) => {
     const decode = jwtDecode(token)
@@ -24,6 +26,17 @@ export function AuthProvider (props) {
     setIsAuth(false)
   }
 
+  const getUserData = async (id) => {
+    try {
+      const response = await getRegisterUser(id)
+      if (response.status === 200) {
+        setUserData(response.data)
+      }
+    } catch (error) {
+      console.log('Un error al obtener el usuario:', error.message)
+    }
+  }
+
   useEffect(() => {
     const token = window.localStorage.getItem('token')
     if (token) {
@@ -31,11 +44,18 @@ export function AuthProvider (props) {
     }
   }, [])
 
+  useEffect(() => {
+    if (user) {
+      getUserData(user.id)
+    }
+  }, [user])
+
   const values = {
     isAuth,
     user,
     login,
-    logout
+    logout,
+    userData
   }
 
   return (
