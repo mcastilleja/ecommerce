@@ -1,12 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 
 function Product ({ product }) {
-  const navigate = useNavigate()
-
+//   const navigate = useNavigate()
+  console.log('Product: ' + product)
   return (
-    <div className='card mb-4 box-shadow' onClick={() => { navigate(`/product/${product._id}`) }}>
-      {product.image === undefined ? <img src='https://www.ideasmerchandising.com/assets/frontend/imagenes/no_img_avaliable.jpg' alt={product.product_name} /> : <img src={product.image} alt={product.product_name} />}
-      <div className='card-body'>
+    <div className='card mb-4 box-shadow'>
+      {product.image === undefined ? <img src='https://www.ideasmerchandising.com/assets/frontend/imagenes/no_img_avaliable.jpg' alt={product.product_name} /> : <img src={product.image} alt={product.product_name} />}        <div className='card-body'>
         <p className='card-text'>{product.product_name}</p>
         <div className='d-flex justify-content-between align-items-center'>
           <div className='btn-group'>
