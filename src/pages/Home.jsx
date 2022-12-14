@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { productList } from '../services/useServices'
+import { productService } from '../services/useServices'
 import ListProducts from '../components/ListProducts'
 import Product from '../components/Product'
 
@@ -14,7 +14,7 @@ const Home = () => {
 
   const getProduct = async () => {
     try {
-      const response = await productList()
+      const response = await productService('')
 
       if (response.status !== 200) {
         console.log('El API no responde')

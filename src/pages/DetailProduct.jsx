@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { detailProduct } from '../services/useServices'
+import { productService } from '@/services/useServices'
 
 const DetailProduct = () => {
   const [product, setProduct] = useState([])
@@ -12,7 +12,7 @@ const DetailProduct = () => {
 
   const getProduct = async (productId) => {
     try {
-      const response = await detailProduct(productId)
+      const response = await productService(productId)
 
       if (response.status !== 200) {
         console.log('El API no responde')
