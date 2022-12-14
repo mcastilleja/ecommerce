@@ -4,7 +4,6 @@ import { loginUserService } from '@/services/useServices'
 import { AuthContext } from '@/context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import './formlogin.scss'
-import coppelLogo from '../assets/img/logo_coppel.png'
 
 const FormLogin = () => {
   const { login } = useContext(AuthContext)
@@ -32,7 +31,6 @@ const FormLogin = () => {
     <div className='container login-container'>
       <div className='row'>
         <div className='col-md-12 login-form-2'>
-          <img src={coppelLogo} className='logo' alt='Coppel' />
           <h3>Login</h3>
           <form onSubmit={handleSubmit}>
             <div className='form-group'>
