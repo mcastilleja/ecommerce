@@ -2,6 +2,7 @@ import useForm from '@/hooks/useForm'
 import { registerUserService } from '@/services/useServices'
 import { useNavigate } from 'react-router-dom'
 import './formlogin.scss'
+import coppelLogo from '../assets/img/logo_coppel.png'
 
 const FormSignup = () => {
   const navigate = useNavigate()
@@ -29,6 +30,7 @@ const FormSignup = () => {
     <div className='container login-container'>
       <div className='row'>
         <div className='col-md-12 login-form-2'>
+          <img src={coppelLogo} className='logo' alt='Coppel' />
           <h3>Please sign up</h3>
           <form onSubmit={handleSubmit}>
             <div className='form-group m-1'>
