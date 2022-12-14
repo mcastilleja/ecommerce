@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Error404 from '@/pages/Error404'
 import Home from '@/pages/Home'
 import Login from '@/pages/Login'
@@ -14,7 +14,7 @@ function RoutesIndex () {
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/product/:pid' element={<DetailProduct />} />
-      <Route path='/myhomepage' element={isAuth ? <MyPage /> : <Navigate to='/login' replace />} />
+      {isAuth ? <Route path='/myhomepage' element={<MyPage />} /> : null}
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='*' element={<Error404 />} />
