@@ -4,10 +4,12 @@ import RoutesIndex from './routes/Routes'
 
 function App () {
   return (
-    <div className='App'>
-      <NavBar />
-      <RoutesIndex />
-    </div>
+    <>
+      <div className='App'>
+        <NavBar />
+        <RoutesIndex />
+      </div>
+    </>
   )
 }
 

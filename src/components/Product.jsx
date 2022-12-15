@@ -14,7 +14,7 @@ function Product ({ product }) {
           </div>
           <small className='text-muted'>9 mins</small>
         </div>
-      </div>
+                                                                                                                                                                                                                                </div>
     </div>
   )
 }
