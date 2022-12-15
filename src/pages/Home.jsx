@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { productService } from '../services/useServices'
-import ListProducts from '../components/ListProducts'
-import Product from '../components/Product'
+import { productService } from '@/services/useServices'
+import ListProducts from '@/components/ListProducts'
+import Product from '@/components/Product'
 
 const Home = () => {
   const [products, setProducts] = useState([])

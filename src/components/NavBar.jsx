@@ -31,6 +31,9 @@ const NavBar = () => {
                   <Link to='/myhomepage' className='header__item-link'>My HomePage</Link>
                 </li>
                 <li className='header__list-item'>
+                  <Link to='/newproduct' className='header__item-link'>Add New Product</Link>
+                </li>
+                <li className='header__list-item'>
                   <span>Bienvenido {userData.first_name}, {userData.last_name}</span>
                 </li>
                 <li className='header__list-item'>

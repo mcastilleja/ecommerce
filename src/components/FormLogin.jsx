@@ -13,7 +13,6 @@ const FormLogin = () => {
     try {
       const response = await loginUserService(data)
       if (response.status === 200) {
-        console.log('el estatus es 200')
         const token = response.data.token
         login(token)
         navigate('/myhomepage')

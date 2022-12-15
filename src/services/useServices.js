@@ -19,5 +19,6 @@ const productService = (productId) => axios.get(`${BASE_URL}/item/${productId}`)
 const registerUserService = (data) => axios.post(`${BASE_URL}/signup`, data)
 const loginUserService = (data) => axios.post(`${BASE_URL}/login`, data)
 const getRegisterUser = (id) => axios.get(`${BASE_URL}/user/${id}`)
+const addNewProductService = (data) => axios.post(`${BASE_URL}/item`, data)
 
-export { productService, registerUserService, loginUserService, getRegisterUser }
+export { productService, registerUserService, loginUserService, getRegisterUser, addNewProductService }
