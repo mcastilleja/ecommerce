@@ -8,6 +8,7 @@ export function AuthProvider (props) {
   const [isAuth, setIsAuth] = useState(false)
   const [user, setUser] = useState(null)
   const [userData, setUserData] = useState({})
+  const [isAdmin, setIsAdmin] = useState(false)
 
   const register = (token) => {
     const decode = jwtDecode(token)
@@ -24,6 +25,7 @@ export function AuthProvider (props) {
     window.localStorage.removeItem('token')
     setUser(null)
     setIsAuth(false)
+    setIsAdmin(false)
   }
 
   const getUserData = async (id) => {
@@ -46,6 +48,9 @@ export function AuthProvider (props) {
 
   useEffect(() => {
     if (user) {
+      if (user.role === 'ADMIN') {
+        setIsAdmin(true)
+      }
       getUserData(user.id)
     }
   }, [user])
@@ -55,7 +60,8 @@ export function AuthProvider (props) {
     user,
     login,
     logout,
-    userData
+    userData,
+    isAdmin
   }
 
   return (

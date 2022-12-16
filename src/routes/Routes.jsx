@@ -10,13 +10,13 @@ import { AuthContext } from '@/context/AuthContext'
 import AddProduct from '@/pages/AddProduct'
 
 function RoutesIndex () {
-  const { isAuth } = useContext(AuthContext)
+  const { isAuth, isAdmin } = useContext(AuthContext)
   return (
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/product/:pid' element={<DetailProduct />} />
       {isAuth ? <Route path='/myhomepage' element={<MyPage />} /> : null}
-      {isAuth ? <Route path='/newproduct' element={<AddProduct />} /> : null}
+      {isAdmin ? <Route path='/newproduct' element={<AddProduct />} /> : null}
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='*' element={<Error404 />} />

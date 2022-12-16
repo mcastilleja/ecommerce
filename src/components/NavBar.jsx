@@ -5,7 +5,7 @@ import './navbar.scss'
 import coppelLogo from '../assets/img/logo_coppel.png'
 
 const NavBar = () => {
-  const { isAuth, logout, userData } = useContext(AuthContext)
+  const { isAuth, logout, userData, isAdmin } = useContext(AuthContext)
   return (
     <nav className='header'>
       <Link to='/' className='header__logo'><img src={coppelLogo} className='logo' alt='Coppel' /></Link>
@@ -30,9 +30,11 @@ const NavBar = () => {
                 <li className='header__list-item'>
                   <Link to='/myhomepage' className='header__item-link'>My HomePage</Link>
                 </li>
-                <li className='header__list-item'>
-                  <Link to='/newproduct' className='header__item-link'>Add New Product</Link>
-                </li>
+                {
+                isAdmin
+                  ? <li className='header__list-item'><Link to='/newproduct' className='header__item-link'>Add New Product</Link></li>
+                  : null
+                  }
                 <li className='header__list-item'>
                   <span>Bienvenido {userData.first_name}, {userData.last_name}</span>
                 </li>
